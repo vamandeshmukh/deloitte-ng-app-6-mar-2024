@@ -27,7 +27,14 @@ ng generate component components/about
 Component - TypeScript file - home.component.ts 
 Template - HTML file - home.component.html 
 
+Data binding 
+------------
 
+data binding - 
+share data between component and template 
+
+1. interpolation -  {{}}
+send data from component to template 
 
 
 # DeloitteNgApp
