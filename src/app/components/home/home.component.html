@@ -1,19 +1,21 @@
 <h1>Home Component</h1>
 <p>Home component works!</p>
-<p>Hi {{firstName}} {{lastName}}!</p>
-<p> {{salary}} </p>
-<p> {{emp.eid}} </p>
+<h3>Pipes in Angular</h3>
+<p>Name: {{firstName }}</p>
+<p>Name: {{firstName | uppercase }}</p>
+<p>Name: {{firstName | lowercase }}</p>
+<p>Salary: {{salary}} </p>
+<p>Salary: {{salary | currency : 'INR' }} </p>
 
-<!-- <h3>Data Binding</h3>
 
+
+
+<h3>Data Binding</h3>
 <h4>Interpolation</h4>
 <p> {{salary}} </p>
-
+<p> {{emp.fName}} </p>
 <h4>Property binding</h4>
 <p [innerText]="firstName"></p>
-
--->
-
 <button [disabled]="isAllowed">Click after 5 secs</button>
 <br />
 <h4>Event Binding</h4>
