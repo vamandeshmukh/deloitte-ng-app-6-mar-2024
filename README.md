@@ -15,6 +15,15 @@ Testing
 
 --------------------------------------------
 
+// generate a new component in the components folder - 
+
+ng generate component components/home
+
+ng generate component components/about 
+
+
+
+
 # DeloitteNgApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
