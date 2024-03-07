@@ -1,3 +1,20 @@
+
+# Training Notes - 
+## 7-Mar-2024 
+
+- Most important concepts in Angular 
+Components 
+Templates 
+Data binding 
+Directives 
+Decorators 
+Routing 
+Forms 
+Services 
+Testing 
+
+--------------------------------------------
+
 # DeloitteNgApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
