@@ -3,12 +3,21 @@
 <p>Hi {{firstName}} {{lastName}}!</p>
 <p> {{salary}} </p>
 <p> {{emp.eid}} </p>
-<h3>Data Binding</h3>
-<p>Interpolation</p>
+
+<!-- <h3>Data Binding</h3>
+
+<h4>Interpolation</h4>
 <p> {{salary}} </p>
-<p>Property binding</p>
+
+<h4>Property binding</h4>
 <p [innerText]="firstName"></p>
 
-<button [disabled]="isAllowed">Click me</button>
+-->
+
+<button [disabled]="isAllowed">Click after 5 secs</button>
+<br />
+<h4>Event Binding</h4>
+<p> Name: {{personName}} </p>
+<button (click)="viewName()">Click to view name</button>
 
 <!-- <p innerText="firstName"></p> -->

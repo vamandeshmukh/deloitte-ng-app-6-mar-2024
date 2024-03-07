@@ -38,8 +38,9 @@ share data from component to template
 - used for rendering data to template 
 2. Property binding [] 
 - used to work with HTML elements 
+
 share data from template to component 
-3. event binding 
+3. event binding ()
 
 
 

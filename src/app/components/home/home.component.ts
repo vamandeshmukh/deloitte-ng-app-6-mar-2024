@@ -9,18 +9,26 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  isAllowed = true;
+  firstName = 'Sonu';
+  lastName = 'Reddy';
+  salary = 10.5;
+  emp = { eid: 101, fName: 'Monu' }
+
+  personName = '';
+
+
+
   constructor() {
     setTimeout(() => {
       this.isAllowed = false;
     }, 5000);
   }
 
-  isAllowed = true;
-  firstName = 'Sonu';
-  lastName = 'Reddy';
-  salary = 10.5;
+  viewName = () => {
+    this.personName = 'Tonu';
+  };
 
-  emp = { eid: 101, fName: 'Monu' }
 
 
 
