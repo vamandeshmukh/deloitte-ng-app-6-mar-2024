@@ -1,14 +1,22 @@
 <h1>Home Component</h1>
 <p>Home component works!</p>
+
+<div>
+    <div *ngIf="true"> {{employees[0]}} </div>
+    <p>Employees:</p>
+    <ul>
+        <li *ngFor="let emp of employees"> {{emp}} </li>
+    </ul>
+</div>
+
+
+<!-- 
 <h3>Pipes in Angular</h3>
 <p>Name: {{firstName }}</p>
 <p>Name: {{firstName | uppercase }}</p>
 <p>Name: {{firstName | lowercase }}</p>
 <p>Salary: {{salary}} </p>
 <p>Salary: {{salary | currency : 'INR' }} </p>
-
-
-
 
 <h3>Data Binding</h3>
 <h4>Interpolation</h4>
@@ -24,6 +32,6 @@
 <h4>Two-way Binding</h4>
 <input type="text" [(ngModel)]="personName" />
 <p> Name: {{personName}} </p>
-
+ -->
 
 <!-- <p innerText="firstName"></p> -->

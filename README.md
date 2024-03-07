@@ -45,6 +45,19 @@ share data from template to component
 two-way binding 
 4. ngModel [()]
 
+### Pipe in Angular 
+used for data transfromation in interpolation 
+{{firstName | uppercase}}
+ (add imports: [CommonModule], in Component decorator )
+
+### Directives in Angular 
+used for giving instructions to DOM 
+
+component 
+ngModel
+*ngIf
+*ngFor
+ngClass
 
 
 
