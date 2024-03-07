@@ -34,7 +34,13 @@ data binding -
 share data between component and template 
 
 1. interpolation -  {{}}
-send data from component to template 
+share data from component to template 
+
+2. Property binding [] 
+share data from component to template 
+
+
+
 
 
 # DeloitteNgApp

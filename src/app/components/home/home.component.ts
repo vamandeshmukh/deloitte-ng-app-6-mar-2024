@@ -11,6 +11,12 @@ export class HomeComponent {
 
   firstName = 'Sonu';
   lastName = 'Reddy';
+  salary = 10.5;
+
+  emp = { eid: 101, fName: 'Monu' }
+
+
 
 }
+
 
