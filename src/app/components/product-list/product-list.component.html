@@ -2,4 +2,7 @@
 <p>product-list works!</p>
 <h5>Parent: ProductList, Child: ProductDetails</h5>
 
-<app-product-details></app-product-details>
+<p>Parent data in parent component: {{parentData}}</p>
+
+<app-product-details [parentDataInChild]="parentData"></app-product-details>
+

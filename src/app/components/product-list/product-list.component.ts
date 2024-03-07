@@ -10,4 +10,6 @@ import { ProductDetailComponent } from '../product-details/product-details.compo
 })
 export class ProductListComponent {
 
+  parentData = 'Sonu';
+
 }

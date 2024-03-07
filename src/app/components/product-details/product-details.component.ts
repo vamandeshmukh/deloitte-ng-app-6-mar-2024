@@ -7,8 +7,9 @@ import { Component, Input } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './product-details.component.html',
 })
-
 export class ProductDetailComponent {
 
+  @Input()
+  parentDataInChild = '';
 
 }
