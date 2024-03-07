@@ -21,6 +21,14 @@ ng generate component components/home
 
 ng generate component components/about 
 
+--------------------------------------------
+
+
+Component - TypeScript file - home.component.ts 
+Template - HTML file - home.component.html 
+
+
+
 
 # DeloitteNgApp
 
