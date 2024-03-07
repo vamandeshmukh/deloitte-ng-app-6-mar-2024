@@ -9,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor() {
+    setTimeout(() => {
+      this.isAllowed = false;
+    }, 5000);
+  }
+
+  isAllowed = true;
   firstName = 'Sonu';
   lastName = 'Reddy';
   salary = 10.5;

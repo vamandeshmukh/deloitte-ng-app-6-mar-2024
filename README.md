@@ -33,11 +33,13 @@ Data binding
 data binding - 
 share data between component and template 
 
-1. interpolation -  {{}}
 share data from component to template 
-
+1. interpolation {{}} 
+- used for rendering data to template 
 2. Property binding [] 
-share data from component to template 
+- used to work with HTML elements 
+share data from template to component 
+3. event binding 
 
 
 
