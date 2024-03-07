@@ -10,6 +10,14 @@ import { ProductDetailComponent } from '../product-details/product-details.compo
 })
 export class ProductListComponent {
 
-  parentData = 'Sonu';
+  products: any[] = [
+    { productId: 101, name: 'Laptop', price: 89990 },
+    { productId: 102, name: 'Phone', price: 49990 },
+    { productId: 103, name: 'Watch', price: 19990 }
+  ];
+  selectedProduct: any;
 
+  selectProduct(product: any) {
+    this.selectedProduct = product;
+  }
 }

@@ -9,7 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductDetailComponent {
 
-  @Input()
-  parentDataInChild = '';
+  @Input() product: any;
 
 }

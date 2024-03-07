@@ -1,8 +1,8 @@
-<h1>Product List Component</h1>
-<p>product-list works!</p>
-<h5>Parent: ProductList, Child: ProductDetails</h5>
+<h1>Product List</h1>
 
-<p>Parent data in parent component: {{parentData}}</p>
+<div *ngFor="let product of products">
+    <h4>{{ product.name }}</h4>
+    <button (click)="selectProduct(product)">View Details</button>
+</div>
 
-<app-product-details [parentDataInChild]="parentData"></app-product-details>
-
+<app-product-details *ngIf="selectedProduct" [product]="selectedProduct"></app-product-details>
