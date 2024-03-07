@@ -15,6 +15,17 @@ Testing
 
 --------------------------------------------
 
+
+### flow of execution - 
+-> main.ts 
+-> app.module.ts 
+-> app.component.ts 
+-> app.componet.html 
+-> index.html 
+
+
+--------------------------------------------
+
 // generate a new component in the components folder - 
 
 ng generate component components/home
@@ -28,7 +39,7 @@ Component - TypeScript file - home.component.ts
 Template - HTML file - home.component.html 
 
 Data binding 
-------------
+------------ 
 
 ### data binding - 
 share data between component and template 
@@ -59,6 +70,13 @@ ngModel
 *ngFor
 ngClass
 
+Products Components 
+----------------
+
+ng generate component components/product-list
+ng generate component components/product-details
+
+Edit the code. 
 
 
 # DeloitteNgApp
