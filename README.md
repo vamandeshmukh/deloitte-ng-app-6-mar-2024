@@ -78,6 +78,10 @@ ng generate component components/product-details
 
 Edit the code. 
 
+### Pass data from parent component to child component
+
+use @Input in child component 
+
 
 # DeloitteNgApp
 
