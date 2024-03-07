@@ -30,7 +30,7 @@ Template - HTML file - home.component.html
 Data binding 
 ------------
 
-data binding - 
+### data binding - 
 share data between component and template 
 
 share data from component to template 
@@ -42,6 +42,8 @@ share data from component to template
 share data from template to component 
 3. event binding ()
 
+two-way binding 
+4. ngModel [()]
 
 
 

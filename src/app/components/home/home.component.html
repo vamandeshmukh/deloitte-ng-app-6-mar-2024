@@ -19,5 +19,9 @@
 <h4>Event Binding</h4>
 <p> Name: {{personName}} </p>
 <button (click)="viewName()">Click to view name</button>
+<h4>Two-way Binding</h4>
+<input type="text" [(ngModel)]="personName" />
+<p> Name: {{personName}} </p>
+
 
 <!-- <p innerText="firstName"></p> -->
