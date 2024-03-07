@@ -15,9 +15,11 @@ export class ProductListComponent {
     { productId: 102, name: 'Phone', price: 49990 },
     { productId: 103, name: 'Watch', price: 19990 }
   ];
+
   selectedProduct: any;
 
   selectProduct(product: any) {
     this.selectedProduct = product;
   }
 }
+

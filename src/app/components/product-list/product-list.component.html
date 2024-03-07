@@ -5,4 +5,6 @@
     <button (click)="selectProduct(product)">View Details</button>
 </div>
 
+<!-- <app-product-details [product]="selectedProduct"></app-product-details> -->
+
 <app-product-details *ngIf="selectedProduct" [product]="selectedProduct"></app-product-details>
