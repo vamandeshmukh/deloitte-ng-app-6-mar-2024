@@ -1,7 +1,7 @@
 // hands on 
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormArray, } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -13,9 +13,9 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, } from '@angul
 export class RegisterComponent {
 
   registerForm: FormGroup;
+  addresses: FormArray;
 
   constructor(private formBuilder: FormBuilder) {
-
     this.registerForm = this.formBuilder.group({
       username: ['',
         {
@@ -23,14 +23,29 @@ export class RegisterComponent {
           updateOn: 'blur'
         }],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      addresses: this.formBuilder.array([])
     },
-      { updateOn: 'submit' }
+      // { updateOn: 'submit' }
     );
+    this.addresses = this.registerForm.get('addresses') as FormArray;
+  }
+
+  addAddress() {
+    const addressFormGroup = this.formBuilder.group({
+      city: ['', Validators.required],
+      pin: ['', Validators.required]
+    });
+    this.addresses.push(addressFormGroup);
+  }
+
+  removeAddress(index: number) {
+    this.addresses.removeAt(index);
   }
 
   onSubmit() {
     console.log('onSubmit');
+    console.log(this.registerForm.value);
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
       this.registerForm.reset();

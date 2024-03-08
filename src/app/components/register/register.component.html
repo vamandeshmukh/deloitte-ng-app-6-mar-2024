@@ -1,4 +1,5 @@
 <!-- hands on  -->
+
 <h1>Register</h1>
 <p>Register with Reactive Form</p>
 
@@ -27,6 +28,27 @@
             </div>
         </div>
     </div>
+
+    <label for="addresses">Addresses</label> <br/>
+    <button type="button" (click)="addAddress()">Add Address</button>
+
+    <div formArrayName="addresses">
+        <div *ngFor="let address of addresses.controls; let i = index">
+            <div [formGroupName]="i">
+                <label>City:</label>
+                <input type="text" formControlName="city">
+                <div *ngIf="address.get('city')?.invalid && address.get('city')?.touched">
+                    <span *ngIf="address.get('city')?.hasError('required')">City is required</span>
+                </div>
+                <label>PIN:</label>
+                <input type="number" formControlName="pin">
+                <div *ngIf="address.get('pin')?.invalid && address.get('pin')?.touched">
+                    <span *ngIf="address.get('pin')?.hasError('required')">pin is required</span>
+                </div>
+                <button type="button" (click)="removeAddress(i)">Remove</button>
+            </div>
+        </div>
+    </div>
     <div>
         <label for="password">Password:</label>
         <input type="password" id="password" formControlName="password">
@@ -36,8 +58,8 @@
             </div>
         </div>
     </div>
-    <!-- <input type="submit" [disabled]="registerForm.invalid" value="Register" /> -->
-    <input type="submit" value="Register" />
+    <input type="submit" [disabled]="registerForm.invalid" value="Register" />
+    <!-- <input type="submit" value="Register" /> -->
 </form>
 
 <!-- 
