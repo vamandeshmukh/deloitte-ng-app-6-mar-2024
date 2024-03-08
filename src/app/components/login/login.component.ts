@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +16,18 @@ export class LoginComponent {
     password: ''
   };
 
-  submitLogin = () => {
-    if (this.loginData.username && this.loginData.password)
+  @ViewChild('loginForm')
+  loginForm!: NgForm;
+
+  submitLogin = (loginForm: any) => {
+    if (loginForm.value.username && loginForm.value.password) {
+      this.loginData = loginForm.value;
+      this.loginForm.resetForm();
       console.log(this.loginData);
-    else
+    }
+    else {
       console.log('missing values');
+    }
   };
 
 }

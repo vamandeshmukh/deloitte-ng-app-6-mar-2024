@@ -1,19 +1,26 @@
 <h1>Login</h1>
+
 <p>Login with Template Driven Form</p>
 
-<form (ngSubmit)="submitLogin()">
+<form #loginForm="ngForm" (ngSubmit)="submitLogin(loginForm)">
     <div>
         <label for="username"></label>
-        <input type="text" id="username" name="username" [(ngModel)]="loginData.username" required autofocus/>
+        <!-- <input type="text" id="username" name="username" [(ngModel)]="loginData.username" required autofocus /> -->
+        <input type="text" id="username" name="username" ngModel required autofocus />
     </div>
     <div>
         <label for="password"></label>
-        <input type="password" id="password" name="password" [(ngModel)]="loginData.password" required />
+        <input type="password" id="password" name="password" ngModel required />
     </div>
     <div>
         <input type="submit" value="Login" />
     </div>
 </form>
+
+
+
+
+
 
 <!-- <h1>Login</h1>
 <p>Login with Template Driven Form</p>
