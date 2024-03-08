@@ -1,11 +1,42 @@
 <h1>Login</h1>
+<p>Login with Template Driven Form</p>
+
+<form #loginForm="ngForm" (ngSubmit)="submitLogin(loginForm)">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="loginData.username" #username="ngModel" required
+            minlength="4" maxlength="8" autofocus />
+        <div *ngIf="username.errors?.['required'] && (username.touched || loginForm.submitted)">
+            Username is required.
+        </div>
+        <div *ngIf="username.errors?.['minlength'] && (username.touched || loginForm.submitted)">
+            Username must be between 4 and 8 characters.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="loginData.password" #password="ngModel"
+            required />
+        <div *ngIf="password.errors?.['required'] && (password.touched || loginForm.submitted)">
+            Password is required.
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" value="Login" [disabled]="loginForm.invalid" />
+    </div>
+</form>
+
+
+<!-- 
+<h1>Login</h1>
 
 <p>Login with Template Driven Form</p>
 
 <form #loginForm="ngForm" (ngSubmit)="submitLogin(loginForm)">
     <div>
         <label for="username"></label>
-        <!-- <input type="text" id="username" name="username" [(ngModel)]="loginData.username" required autofocus /> -->
         <input type="text" id="username" name="username" ngModel required autofocus />
     </div>
     <div>
@@ -15,5 +46,5 @@
     <div>
         <input type="submit" value="Login" />
     </div>
-</form>
-
+</form> 
+-->
