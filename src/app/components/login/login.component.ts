@@ -17,7 +17,10 @@ export class LoginComponent {
   };
 
   submitLogin = () => {
-    if (10 === 10)
+    if (this.loginData.username && this.loginData.password)
       console.log(this.loginData);
+    else
+      console.log('missing values');
   };
+
 }

@@ -16,7 +16,6 @@ Testing
 
 --------------------------------------------
 
-
 ### flow of execution - 
 -> main.ts 
 -> <app.module.ts> 
@@ -100,7 +99,10 @@ dumb componnet renders that data
 
 ---------------------------------- 
 
+### Forms in Angular 
 
+Template driven forms 
+Reactive forms 
 
 
 
