@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './product-details.component.html',
+  styleUrl: './product-details.component.css'
 })
 export class ProductDetailComponent {
 

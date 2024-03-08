@@ -1,5 +1,6 @@
 
 # Training Notes - 
+
 ## 7-Mar-2024 
 
 - Most important concepts in Angular 
@@ -18,7 +19,7 @@ Testing
 
 ### flow of execution - 
 -> main.ts 
--> app.module.ts 
+-> <app.module.ts> 
 -> app.component.ts 
 -> app.componet.html 
 -> index.html 
@@ -67,7 +68,8 @@ used for giving instructions to DOM
 component 
 ngModel
 *ngIf
-*ngFor
+*ngFor 
+*ngSwitch
 ngClass
 
 Products Components 
@@ -81,6 +83,25 @@ Edit the code.
 ### Pass data from parent component to child component
 
 use @Input in child component 
+property binding in parent template 
+
+### Pass data from child component to parent component
+
+use @Output in child component 
+
+SMART DUMB Design Pattern 
+------------------------- 
+
+SMART component - holds data (product list)
+DUMB component - does not hold data (product details)
+
+smart component provides data to dumb component 
+dumb componnet renders that data 
+
+---------------------------------- 
+
+
+
 
 
 # DeloitteNgApp

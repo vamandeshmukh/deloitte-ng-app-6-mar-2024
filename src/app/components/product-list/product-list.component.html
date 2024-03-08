@@ -1,10 +1,15 @@
 <h1>Product List</h1>
 
-<div *ngFor="let product of products">
-    <h4>{{ product.name }}</h4>
-    <button (click)="selectProduct(product)">View Details</button>
-</div>
+<section ngClass="product-list">
+    <section ngClass="product-card" *ngFor="let product of products">
+        <h4>{{ product.name }}</h4>
+        <button (click)="selectProduct(product)">View Details</button>
+    </section>
+</section>
+
 
 <!-- <app-product-details [product]="selectedProduct"></app-product-details> -->
 
 <app-product-details *ngIf="selectedProduct" [product]="selectedProduct"></app-product-details>
+
+
