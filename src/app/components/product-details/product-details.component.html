@@ -1,6 +1,8 @@
 <h3>Product Details</h3>
+<button (click)="onClick()">Go To the Product List</button>
 <section ngClass="product-details-card" *ngIf="product">
     <h2>{{ product.name }} | {{ product.price | currency: 'INR' }}/-</h2>
     <p>This is a fantastic product at a very reasonable price! </p>
     <img width="25%" src="https://picsum.photos/900/400" alt={{product.name}} />
+
 </section>

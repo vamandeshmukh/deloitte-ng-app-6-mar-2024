@@ -26,7 +26,14 @@ export class ProductListComponent {
   selectProduct(product: any) {
     this.selectedProduct = product;
   }
+
+  handleClick = () => {
+    this.selectedProduct = '';
+  };
+
+
 }
+
 
 
 

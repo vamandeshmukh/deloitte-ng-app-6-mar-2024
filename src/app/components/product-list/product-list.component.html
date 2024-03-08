@@ -10,6 +10,4 @@
 
 <!-- <app-product-details [product]="selectedProduct"></app-product-details> -->
 
-<app-product-details *ngIf="selectedProduct" [product]="selectedProduct"></app-product-details>
-
-
+<app-product-details *ngIf="selectedProduct" (goBack)="handleClick()" [product]="selectedProduct"></app-product-details>

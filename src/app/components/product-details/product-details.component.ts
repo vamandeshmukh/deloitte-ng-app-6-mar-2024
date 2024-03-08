@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-details',
@@ -11,5 +11,14 @@ import { Component, Input } from '@angular/core';
 export class ProductDetailComponent {
 
   @Input() product: any;
+
+  @Output()
+  goBack = new EventEmitter<void>();
+
+  onClick = () => {
+    this.goBack.emit();
+  };
+
+
 
 }
