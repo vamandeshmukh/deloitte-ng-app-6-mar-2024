@@ -43,7 +43,7 @@ export class ProductListComponent {
     this.productService.getAllProducts()
       .pipe(map((resp) => { return resp.products }))
       .subscribe({
-        next: (response) => {
+        next: (response: Product[]) => {
           console.log(response);
           this.products = response;
         },
@@ -55,7 +55,7 @@ export class ProductListComponent {
     if (productIdForm.value.productId)
       this.productService.getProductById(productIdForm.value.productId)
         .subscribe({
-          next: (response) => {
+          next: (response: Product) => {
             console.log(response);
             this.selectProduct(response);
             productIdForm.reset();
