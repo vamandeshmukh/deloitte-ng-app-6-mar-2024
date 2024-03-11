@@ -17,7 +17,10 @@ export class ProductListComponent {
 
   constructor(private productService: ProductService) {
     console.log('constructor');
-    this.products = productService.getAllProducts();
+    // this.products = productService.getAllProducts();
+
+    productService.getAllProducts()
+      .subscribe();
   }
 
 
