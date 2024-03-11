@@ -1,5 +1,6 @@
+
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-details',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit, OnDestroy {
 
   @Input() product: any;
 
@@ -19,6 +20,20 @@ export class ProductDetailComponent {
     this.goBack.emit();
   };
 
+  constructor() {
+    console.log('constructor');
+  }
 
+  ngOnChanges() {
+    console.log('ngOnChanges');
+  }
+
+  ngOnInit(): void {
+    console.log('ngOnInit');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
+  }
 
 }

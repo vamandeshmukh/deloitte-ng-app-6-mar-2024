@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ProductDetailComponent } from '../product-details/product-details.component';
 import { ProductService } from '../../services/product.service';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -16,11 +16,18 @@ export class ProductListComponent {
   products: any[] = [];
   selectedProduct: any;
   productId: number | undefined;
+  productNotFound: string = '';
+
+  @ViewChild('productIdForm')
+  productIdForm!: NgForm;
+
 
   constructor(private productService: ProductService) {
     console.log('constructor');
+  }
 
-    productService.getAllProducts()
+  viewAllProducts = () => {
+    this.productService.getAllProducts()
       .subscribe({
         next: (response) => {
           console.log(response.products);
@@ -28,12 +35,24 @@ export class ProductListComponent {
         },
         error: (err) => { console.log(err); }
       });
-  }
+  };
 
-  submitProductById = (productIdForm: NgForm) => {
+  viewProductById = (productIdForm: NgForm) => {
     if (productIdForm.value.productId)
       this.productService.getProductById(productIdForm.value.productId)
-    // complete the code 
+        .subscribe({
+          next: (response) => {
+            console.log(response);
+            this.selectProduct(response);
+            productIdForm.reset();
+          },
+          error: (err) => {
+            console.log(err);
+            this.productNotFound = err.error.message;
+            this.selectProduct(null);
+            productIdForm.reset();
+          }
+        });
   };
 
   selectProduct(product: any) {

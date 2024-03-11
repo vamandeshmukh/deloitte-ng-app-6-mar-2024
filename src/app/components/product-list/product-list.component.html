@@ -1,13 +1,20 @@
 <h1>Product List</h1>
 
+<section>
+    <p>View All Products</p>
+    <button (click)="viewAllProducts()">View All Products</button>
+</section>
 
 <section>
-    <p>Get Product By Id</p>
-    <form #productIdForm="ngForm" (ngSubmit)="submitProductById(productIdForm)">
+    <p>View Product by Id</p>
+    <form #productIdForm="ngForm" (ngSubmit)="viewProductById(productIdForm)">
         <input type="number" id="productId" name="productId" [(ngModel)]="productId">
         <br />
-        <input type="submit" value="Search Product By Id">
+        <input type="submit" value="View Product by Id">
     </form>
+    <div *ngIf="productNotFound">
+        <p>{{productNotFound}}</p>
+    </div>
 </section>
 
 <app-product-details *ngIf="selectedProduct" (goBack)="handleClick()" [product]="selectedProduct"></app-product-details>
@@ -20,5 +27,3 @@
         <button (click)="selectProduct(product)">View Details</button>
     </section>
 </section>
-
-<!-- <app-product-details [product]="selectedProduct"></app-product-details> -->
