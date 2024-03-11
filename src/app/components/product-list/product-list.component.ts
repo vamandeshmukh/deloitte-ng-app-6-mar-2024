@@ -1,4 +1,3 @@
-import { interval } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductDetailComponent } from '../product-details/product-details.component';
@@ -35,16 +34,20 @@ export class ProductListComponent implements OnInit {
 
     this.searchControl.valueChanges
       .pipe(
+        map((q) => {
+          if (q === '')
+            return 'vaman';
+          return q;
+        }),
         debounceTime(300),
         distinctUntilChanged(),
-        switchMap((qry) => { return this.productService.getGitRepos(qry) })
+        switchMap((qry: string) => { return this.productService.getGitRepos(qry) })
       )
       .subscribe((resp) => {
         console.log(resp);
         this.searchedRepos = resp;
       })
   }
-
 
   // viewAllProducts = () => {
   //   this.productService.getAllProducts()

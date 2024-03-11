@@ -25,7 +25,7 @@ export class ProductService {
 
   // more methods 
 
-  getGitRepos = (query: string) => {
+  getGitRepos = (query: string): Observable<any> => {
     console.log(query);
     return this.http.get(`${this.gitRepoUrl}?q=${query}`);
   };
