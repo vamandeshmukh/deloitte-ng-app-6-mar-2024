@@ -12,6 +12,8 @@ import { ProductDetailComponent } from '../product-details/product-details.compo
 })
 export class ProductListComponent {
 
+  // products = HttpBackend.get();
+
   products: any[] = [
     { productId: 101, name: 'Laptop', price: 89990 },
     { productId: 102, name: 'Phone', price: 49990 },
