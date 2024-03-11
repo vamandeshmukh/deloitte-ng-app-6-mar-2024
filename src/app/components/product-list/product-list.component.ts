@@ -31,8 +31,8 @@ export class ProductListComponent {
   }
 
   submitProductById = (productIdForm: NgForm) => {
-    if (productIdForm.value.prouctId)
-      this.productService.getProductById(productIdForm.value.prouctId)
+    if (productIdForm.value.productId)
+      this.productService.getProductById(productIdForm.value.productId)
     // complete the code 
   };
 
