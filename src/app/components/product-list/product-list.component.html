@@ -2,7 +2,8 @@
 
 <section ngClass="product-list">
     <section ngClass="product-card" *ngFor="let product of products">
-        <h4>{{ product.name }}</h4>
+        <h4>{{ product.title }}</h4>
+        <img width="50%" src="{{product.thumbnail}}" alt="">
         <button (click)="selectProduct(product)">View Details</button>
     </section>
 </section>
