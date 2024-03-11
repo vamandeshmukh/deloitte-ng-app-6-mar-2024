@@ -34,7 +34,6 @@ export class ProductListComponent {
     if (productIdForm.value.prouctId)
       this.productService.getProductById(productIdForm.value.prouctId)
     // complete the code 
-
   };
 
   selectProduct(product: any) {
