@@ -14,7 +14,7 @@ export class ProductService {
 
   getAllProducts = (): Observable<any> => {
     console.log('getAllProducts');
-    return this.http.get<any>(this.url);
+    return this.http.get<any>(this.url)
   };
 
   getProductById = (id: number): Observable<Product> => {
