@@ -17,7 +17,6 @@ export class ProductListComponent {
 
   constructor(private productService: ProductService) {
     console.log('constructor');
-    // this.products = productService.getAllProducts();
 
     productService.getAllProducts()
       .subscribe({
@@ -27,14 +26,6 @@ export class ProductListComponent {
         },
         error: (err) => { console.log(err); }
       });
-
-    // .subscribe({
-    //   next: (response) => {
-    //     console.log(response.products);
-    //     return this.products = response.products;
-    //   },
-    //   error: (err) => console.log(err)
-    // });
   }
 
 
