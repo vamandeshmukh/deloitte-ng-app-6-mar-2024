@@ -25,6 +25,12 @@ export class ProductService {
 
   // more methods 
 
+  getGitRepos = (query: string) => {
+    console.log(query);
+    return this.http.get(`${this.gitRepoUrl}?q=${query}`);
+  };
+
+
 }
 
 // import { Injectable } from '@angular/core';

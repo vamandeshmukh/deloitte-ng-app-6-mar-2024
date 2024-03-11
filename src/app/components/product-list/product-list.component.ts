@@ -14,7 +14,7 @@ import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operato
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
   products: Product[] | any;
   selectedProduct: Product | any;
@@ -25,10 +25,24 @@ export class ProductListComponent {
   productIdForm!: NgForm;
 
   searchControl = new FormControl();
-  searchResults: any;
+  searchedRepos: any;
 
 
   constructor(private productService: ProductService) {
+  }
+
+  ngOnInit(): void {
+
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap((qry) => { return this.productService.getGitRepos(qry) })
+      )
+      .subscribe((resp) => {
+        console.log(resp);
+        this.searchedRepos = resp;
+      })
   }
 
 
@@ -82,9 +96,6 @@ export class ProductListComponent {
     this.selectedProduct = undefined;
   };
 }
-
-
-
 
 
 

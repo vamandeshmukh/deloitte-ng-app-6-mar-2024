@@ -1,6 +1,9 @@
 <h1>Product List</h1>
 
 <section>
+    <label for="searchgit">Search Git</label>
+    <input type="text" name="searchgit" id="searchgit" [formControl]="searchControl">
+    <p *ngFor="let repo of searchedRepos?.items"> {{repo.full_name}} </p>
 
 </section>
 
