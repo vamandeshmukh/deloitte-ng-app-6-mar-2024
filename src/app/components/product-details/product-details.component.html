@@ -3,6 +3,8 @@
 <section ngClass="product-details-card" *ngIf="product">
     <h2>{{ product.title }} | {{ product.price | currency: 'INR' }}/-</h2>
     <p> {{product.description}} </p>
-    <img width="25%" src="https://picsum.photos/900/400" alt={{product.name}} />
-
+    <!-- <img width="25%" src="{{product.images[0]}}" alt={{product.name}} /> -->
+    <span *ngFor="let image of product.images">
+        <img width="20%" src="{{image}}" alt={{product.name}} />
+    </span>
 </section>
