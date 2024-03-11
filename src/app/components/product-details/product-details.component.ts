@@ -1,6 +1,7 @@
 
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +12,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
 
-  @Input() product: any;
+  @Input() product: Product | any;
 
   @Output()
   goBack = new EventEmitter<void>();

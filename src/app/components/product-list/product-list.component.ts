@@ -3,6 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ProductDetailComponent } from '../product-details/product-details.component';
 import { ProductService } from '../../services/product.service';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -13,8 +14,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class ProductListComponent {
 
-  products: any[] = [];
-  selectedProduct: any;
+  products: Product[] | any;
+  selectedProduct: Product | any;
   productId: number | undefined;
   productNotFound: string = '';
 
@@ -49,18 +50,18 @@ export class ProductListComponent {
           error: (err) => {
             console.log(err);
             this.productNotFound = err.error.message;
-            this.selectProduct(null);
+            this.selectProduct(undefined);
             productIdForm.reset();
           }
         });
   };
 
-  selectProduct(product: any) {
+  selectProduct(product: Product | any) {
     this.selectedProduct = product;
   }
 
   handleClick = () => {
-    this.selectedProduct = '';
+    this.selectedProduct = undefined;
   };
 
 
