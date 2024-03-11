@@ -20,7 +20,21 @@ export class ProductListComponent {
     // this.products = productService.getAllProducts();
 
     productService.getAllProducts()
-      .subscribe();
+      .subscribe({
+        next: (response) => {
+          console.log(response.products);
+          this.products = response.products;
+        },
+        error: (err) => { console.log(err); }
+      });
+
+    // .subscribe({
+    //   next: (response) => {
+    //     console.log(response.products);
+    //     return this.products = response.products;
+    //   },
+    //   error: (err) => console.log(err)
+    // });
   }
 
 
