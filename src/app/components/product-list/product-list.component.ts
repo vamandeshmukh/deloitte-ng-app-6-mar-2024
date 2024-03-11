@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ProductDetailComponent } from '../product-details/product-details.component';
 import { ProductService } from '../../services/product.service';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, ProductDetailComponent],
+  imports: [CommonModule, ProductDetailComponent, FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -14,6 +15,7 @@ export class ProductListComponent {
 
   products: any[] = [];
   selectedProduct: any;
+  productId: number | undefined;
 
   constructor(private productService: ProductService) {
     console.log('constructor');
@@ -28,6 +30,12 @@ export class ProductListComponent {
       });
   }
 
+  submitProductById = (productIdForm: NgForm) => {
+    if (productIdForm.value.prouctId)
+      this.productService.getProductById(productIdForm.value.prouctId)
+    // code 
+
+  };
 
   selectProduct(product: any) {
     this.selectedProduct = product;

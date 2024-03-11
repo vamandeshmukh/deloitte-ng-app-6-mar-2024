@@ -2,6 +2,15 @@
 
 <app-product-details *ngIf="selectedProduct" (goBack)="handleClick()" [product]="selectedProduct"></app-product-details>
 
+<section>
+    <p>Get Product By Id</p>
+    <form #productIdForm="ngForm" (ngSubmit)="submitProductById(productIdForm)">
+        <input type="number" id="prouctId" name="prouctId" [(ngModel)]="productId">
+        <br />
+        <input type="submit" value="Search Product By Id">
+    </form>
+</section>
+
 <section ngClass="product-list">
     <section ngClass="product-card" *ngFor="let product of products">
         <h4>{{ product.title }}</h4>
