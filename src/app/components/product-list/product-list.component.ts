@@ -1,15 +1,16 @@
+import { interval } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductDetailComponent } from '../product-details/product-details.component';
 import { ProductService } from '../../services/product.service';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Product } from '../../models/product.model';
-import { map } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, ProductDetailComponent, FormsModule],
+  imports: [CommonModule, ProductDetailComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -23,10 +24,13 @@ export class ProductListComponent {
   @ViewChild('productIdForm')
   productIdForm!: NgForm;
 
+  searchControl = new FormControl();
+  searchResults: any;
+
 
   constructor(private productService: ProductService) {
-    console.log('constructor');
   }
+
 
   // viewAllProducts = () => {
   //   this.productService.getAllProducts()
@@ -39,7 +43,7 @@ export class ProductListComponent {
   //     });
   // };
 
-  viewAllProducts = () => {
+  viewAllProducts = (): void => {
     this.productService.getAllProducts()
       .pipe(map((resp) => { return resp.products }))
       .subscribe({
@@ -51,9 +55,10 @@ export class ProductListComponent {
       });
   };
 
-  viewProductById = (productIdForm: NgForm) => {
+  viewProductById = (productIdForm: NgForm): void => {
     if (productIdForm.value.productId)
       this.productService.getProductById(productIdForm.value.productId)
+        .pipe(debounceTime(1000))
         .subscribe({
           next: (response: Product) => {
             console.log(response);
@@ -69,15 +74,13 @@ export class ProductListComponent {
         });
   };
 
-  selectProduct(product: Product | any) {
+  selectProduct(product: Product | any): void {
     this.selectedProduct = product;
   }
 
-  handleClick = () => {
+  handleClick = (): void => {
     this.selectedProduct = undefined;
   };
-
-
 }
 
 

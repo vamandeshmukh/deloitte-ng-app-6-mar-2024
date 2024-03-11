@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, OperatorFunction, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { Product } from '../models/product.model';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   url: string = 'https://dummyjson.com/products';
+  gitRepoUrl: string = 'https://api.github.com/search/repositories';
 
   getAllProducts = (): Observable<any> => {
     console.log('getAllProducts');
@@ -23,7 +24,6 @@ export class ProductService {
   };
 
   // more methods 
-
 
 }
 
