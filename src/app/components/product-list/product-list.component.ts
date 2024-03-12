@@ -30,6 +30,7 @@ export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService) {
   }
 
+
   ngOnInit(): void {
 
     this.searchControl.valueChanges
@@ -43,6 +44,8 @@ export class ProductListComponent implements OnInit {
         distinctUntilChanged(),
         switchMap((qry: string) => { return this.productService.getGitRepos(qry) })
       )
+      // handle null
+      // .pipe()
       .subscribe((resp) => {
         console.log(resp);
         this.searchedRepos = resp;
