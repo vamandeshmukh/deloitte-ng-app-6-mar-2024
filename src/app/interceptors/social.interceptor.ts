@@ -4,11 +4,11 @@ import { of } from 'rxjs/internal/observable/of';
 export const socialInterceptor: HttpInterceptorFn = (request, next) => {
   console.log(request);
   console.log(next);
-  // if (request && (request.url.includes('ghost')))
-  //   throw new Error('Do not search ghosts!');
-  // return next(request);
 
   if (request && (request.url.includes('ghost'))) {
+
+    // better code is needed 
+    
     const response = new HttpResponse({
       status: 422,
       statusText: 'Do not search ghosts!'
