@@ -1,4 +1,3 @@
-
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Product } from '../../models/product.model';
@@ -21,7 +20,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
+
     this.productService.getProductById(this.productId)
       .subscribe((response) => {
         console.log(response);
