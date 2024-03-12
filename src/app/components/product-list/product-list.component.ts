@@ -5,11 +5,12 @@ import { ProductService } from '../../services/product.service';
 import { FormControl, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Product } from '../../models/product.model';
 import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, ProductDetailComponent, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ProductDetailComponent, FormsModule, ReactiveFormsModule, RouterLink, RouterOutlet],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })

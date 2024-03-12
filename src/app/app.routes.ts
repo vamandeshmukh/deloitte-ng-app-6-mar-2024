@@ -4,10 +4,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { Page404Component } from './components/page404/page404.component';
+import { ProductDetailComponent } from './components/product-details/product-details.component';
 
 export const routes: Routes = [
     { path: 'home', pathMatch: 'full', component: HomeComponent },
     { path: 'products', pathMatch: 'full', component: ProductListComponent },
+    { path: 'product-details/:id', component: ProductDetailComponent },
     { path: 'login', pathMatch: 'full', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },

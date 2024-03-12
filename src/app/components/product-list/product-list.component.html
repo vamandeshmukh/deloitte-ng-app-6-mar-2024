@@ -1,10 +1,41 @@
 <h1>Product List</h1>
 
 <section>
+    <p>View All Products</p>
+    <button (click)="viewAllProducts()">View All Products</button>
+</section>
+
+<section>
+    <p>View Product by Id</p>
+    <form #productIdForm="ngForm" (ngSubmit)="viewProductById(productIdForm)">
+        <input type="number" id="productId" name="productId" [(ngModel)]="productId">
+        <br />
+        <input type="submit" value="View Product by Id">
+    </form>
+    <div *ngIf="productNotFound">
+        <p>{{productNotFound}}</p>
+    </div>
+</section>
+
+<!-- <app-product-details *ngIf="selectedProduct" (goBack)="handleClick()" [product]="selectedProduct"></app-product-details> -->
+
+<p>All Products</p>
+<section ngClass="product-list">
+    <section ngClass="product-card" *ngFor="let product of products">
+        <h4>{{ product.title }}</h4>
+        <img width="50%" src="{{product.thumbnail}}" alt="">
+        <div>
+            <a [routerLink]="['/product-details', product.id]">{{product.title}}</a>
+        </div>
+    </section>
+</section>
+
+<!-- <h1>Product List</h1>
+
+<section>
     <label for="searchgit">Search Git</label>
     <input type="text" name="searchgit" id="searchgit" [formControl]="searchControl">
     <p *ngFor="let repo of searchedRepos?.items"> {{repo.full_name}} </p>
-
 </section>
 
 <section>
@@ -33,4 +64,4 @@
         <img width="50%" src="{{product.thumbnail}}" alt="">
         <button (click)="selectProduct(product)">View Details</button>
     </section>
-</section>
+</section> -->

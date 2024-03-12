@@ -2,6 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -21,7 +22,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.goBack.emit();
   };
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute) {
     console.log('constructor');
   }
 
