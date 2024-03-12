@@ -5,7 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { FormControl, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Product } from '../../models/product.model';
 import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -17,8 +17,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   products: Product[] | any;
-  selectedProduct: Product | any;
-  productId: number | undefined;
+  // selectedProduct: Product | any;
+  productId: number | any;
   productNotFound: string = '';
 
   @ViewChild('productIdForm')
@@ -27,30 +27,27 @@ export class ProductListComponent implements OnInit {
   searchControl = new FormControl();
   searchedRepos: any;
 
-
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
   }
 
-
   ngOnInit(): void {
-
-    this.searchControl.valueChanges
-      .pipe(
-        map((q) => {
-          if (q === '')
-            return 'vaman';
-          return q;
-        }),
-        debounceTime(300),
-        distinctUntilChanged(),
-        switchMap((qry: string) => { return this.productService.getGitRepos(qry) })
-      )
-      // handle null
-      // .pipe()
-      .subscribe((resp) => {
-        console.log(resp);
-        this.searchedRepos = resp;
-      })
+    // this.searchControl.valueChanges
+    //   .pipe(
+    //     map((q) => {
+    //       if (q === '')
+    //         return 'vaman';
+    //       return q;
+    //     }),
+    //     debounceTime(300),
+    //     distinctUntilChanged(),
+    //     switchMap((qry: string) => { return this.productService.getGitRepos(qry) })
+    //   )
+    //   // handle null
+    //   // .pipe()
+    //   .subscribe((resp) => {
+    //     console.log(resp);
+    //     this.searchedRepos = resp;
+    //   })
   }
 
   // viewAllProducts = () => {
@@ -79,29 +76,30 @@ export class ProductListComponent implements OnInit {
   viewProductById = (productIdForm: NgForm): void => {
     if (productIdForm.value.productId)
       this.productService.getProductById(productIdForm.value.productId)
-        .pipe(debounceTime(1000))
+        .pipe(debounceTime(300))
         .subscribe({
           next: (response: Product) => {
             console.log(response);
-            this.selectProduct(response);
+            // this.selectProduct(response);
+            this.router.navigate(['/product-details', this.productId])
             productIdForm.reset();
           },
           error: (err) => {
             console.log(err);
             this.productNotFound = err.error.message;
-            this.selectProduct(undefined);
+            // this.selectProduct(undefined);
             productIdForm.reset();
           }
         });
   };
 
-  selectProduct(product: Product | any): void {
-    this.selectedProduct = product;
-  }
+  // selectProduct(product: Product | any): void {
+  //   this.selectedProduct = product;
+  // }
 
-  handleClick = (): void => {
-    this.selectedProduct = undefined;
-  };
+  // handleClick = (): void => {
+  //   this.selectedProduct = undefined;
+  // };
 }
 
 
@@ -141,6 +139,7 @@ export class ProductListComponent implements OnInit {
 
 
 // }
+
 
 
 

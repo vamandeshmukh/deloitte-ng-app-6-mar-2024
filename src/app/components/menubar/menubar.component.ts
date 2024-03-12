@@ -10,4 +10,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class MenubarComponent {
 
+  featuredProductId: number | any;
+
+  constructor() {
+    this.featuredProductId = Math.floor(Math.random() * 100) + 1;
+  }
+
 }

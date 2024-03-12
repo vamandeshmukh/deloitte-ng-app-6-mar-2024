@@ -8,8 +8,8 @@
         <li><a routerLink="#">Logout</a></li>
         <li><a [routerLink]="'login'">Login</a></li>
         <li><a routerLink="register">Register</a></li>
-        <li><a routerLink="#">Featured Product</a></li>
-        <li><a routerLink="products">Products</a></li>
+        <li><a [routerLink]="['/product-details', featuredProductId]">Featured Product</a></li>
+        <li><a routerLink="products-list">Products</a></li>
     </ul>
 </nav>
 

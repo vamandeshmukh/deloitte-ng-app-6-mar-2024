@@ -8,7 +8,7 @@ import { ProductDetailComponent } from './components/product-details/product-det
 
 export const routes: Routes = [
     { path: 'home', pathMatch: 'full', component: HomeComponent },
-    { path: 'products', pathMatch: 'full', component: ProductListComponent },
+    { path: 'products-list', pathMatch: 'full', component: ProductListComponent },
     { path: 'product-details/:id', component: ProductDetailComponent },
     { path: 'login', pathMatch: 'full', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
