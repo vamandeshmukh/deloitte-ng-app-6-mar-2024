@@ -1,7 +1,6 @@
 <h1>Add Product</h1>
 <p>Add a new product</p>
 
-
 <form [formGroup]="productForm" (ngSubmit)="addProduct()">
     <div>
         <label for="title">Title:</label>
@@ -13,7 +12,7 @@
         </div>
     </div>
     <div>
-        <label for="title">Description:</label>
+        <label for="description">Description:</label>
         <input type="text" id="description" formControlName="description">
         <div>
             <div
@@ -23,7 +22,7 @@
         </div>
     </div>
     <div>
-        <label for="title">Price:</label>
+        <label for="price">Price:</label>
         <input type="number" id="price" formControlName="price">
         <div>
             <div *ngIf="productForm.get('price')?.hasError('required') && productForm.get('price')?.touched">
