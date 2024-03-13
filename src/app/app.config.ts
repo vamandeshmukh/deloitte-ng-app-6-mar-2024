@@ -13,7 +13,6 @@ export const appConfig: ApplicationConfig = {
 
   providers: [provideRouter(routes),
   provideHttpClient(withInterceptors([socialInterceptor])),
-
   importProvidersFrom([
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
