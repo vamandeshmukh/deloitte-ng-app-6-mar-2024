@@ -7,9 +7,13 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { firebaseConfig } from './fb/firebaseConfig';
 
+// const firebaseConfig = {};
+
 export const appConfig: ApplicationConfig = {
+
   providers: [provideRouter(routes),
   provideHttpClient(withInterceptors([socialInterceptor])),
+
   importProvidersFrom([
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
