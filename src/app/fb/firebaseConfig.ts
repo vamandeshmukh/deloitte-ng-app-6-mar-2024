@@ -1,15 +1,10 @@
-
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
 export const firebaseConfig = {
-    apiKey: "AIzaSyCe5c2qcubZpmNVppKhDDb2HxrdDQHxd4o",
-    authDomain: "deloitte-ng.firebaseapp.com",
-    projectId: "deloitte-ng",
-    storageBucket: "deloitte-ng.appspot.com",
-    messagingSenderId: "21503038393",
-    appId: "1:21503038393:web:4635f064cdf8edcf9fdc68",
-    measurementId: "G-G8GWRBF6KH"
+    apiKey: "AIzaSyBq1EP5wlrTTMWKOJEH777K3k4CKIo0gtQ",
+    authDomain: "ng-fb-demo-3d337.firebaseapp.com",
+    projectId: "ng-fb-demo-3d337",
+    storageBucket: "ng-fb-demo-3d337.appspot.com",
+    messagingSenderId: "81433978471",
+    appId: "1:81433978471:web:be6939a0789fa20b39d6c2",
+    measurementId: "G-ZFMC2Z44RJ"
 };
-export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
+

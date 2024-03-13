@@ -1,6 +1,46 @@
 <!-- hands on  -->
 
+<h1>Register</h1>
+<p>Register with Firebase</p>
 
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username" autofocus>
+        <div>
+            <div *ngIf="registerForm.get('username')?.hasError('required') && registerForm.get('username')?.touched">
+                Username is required.
+            </div>
+            <div *ngIf="registerForm.get('username')?.hasError('minlength') && registerForm.get('username')?.touched">
+                Username must be between 4 and 8 characters.
+            </div>
+        </div>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email">
+        <div>
+            <div *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">
+                Email is required.
+            </div>
+            <div *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">
+                Email format must be 'a&#64;b.c'.
+            </div>
+        </div>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password">
+        <div>
+            <div *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+                Password is required.
+            </div>
+        </div>
+    </div>
+    <input type="submit" [disabled]="registerForm.invalid" value="Register" />
+</form>
+
+<!-- 
 <h1>Register</h1>
 <p>Register with Reactive Form</p>
 
@@ -60,8 +100,9 @@
         </div>
     </div>
     <input type="submit" [disabled]="registerForm.invalid" value="Register" />
-    <!-- <input type="submit" value="Register" /> -->
 </form>
+  -->
+
 
 <!-- 
 
@@ -119,4 +160,3 @@
     <button type="submit" [disabled]="registerForm.invalid">Submit</button>
 </form>
  -->
- 
